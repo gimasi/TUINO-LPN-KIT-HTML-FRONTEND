@@ -3,7 +3,7 @@
 Here are some examples of HTML frontends for the LPN KIT Demos. You will be able to display data coming from your TUINO LR Nodes.</br>
 This code will work with both version we have here on GitHUB of the LPN KIT
 - [Standard LPN Version](https://github.com/gimasi/TUINO-LPN-KIT-DEMOS)
-- [Swisscom LPN Version](https://github.com/gimasi/TUINO-LPN-KIT-DEMOS)
+- [Swisscom LPN Version](https://github.com/gimasi/TUINO_LPN_KIT_SWISSCOM_LPN)
 
 
 This is the Swisscom LPN version of the [TUINO LPN Demos](https://github.com/gimasi/TUINO-LPN-KIT-DEMOS )<br/>
@@ -13,7 +13,7 @@ There are 4 frontend for the respective TUINO LR code<br/>
 
 There are 4 demos
 - Simple Sensor<br>
-![SIMPLE_SENSOR](/docs/img/simple_sensors.png?raw=true)
+![SIMPLE_SENSOR](/docs/img/simple_sensor.png?raw=true)
 
 - Simple Actuator<br>
 ![SIMPLE_SENSOR](/docs/img/simple_actuator.png?raw=true)

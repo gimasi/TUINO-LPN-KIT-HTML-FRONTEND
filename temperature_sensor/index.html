@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>TUINO DEMO - TEMPERATURE SENSOR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/controlfrog.css" rel="stylesheet" media="screen">   
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>    
+
+  <script src="configuration.js"></script>
+
+  <script src="js/stomp.js"></script>
+  <script src="js/bootstrap.js"></script>
+  
+  <!-- LED and Swicth Library -->
+  <script src="Drinks.js"></script>
+  
+  <!-- Perfect Widgets -->
+  <script src="js/mscorlib.js"></script>
+  <script src="js/PerfectWidgets.js"></script>
+
+  <script src="js/temp_gauge.js"></script>
+
+        <style>
+        .title {
+          text-transform: uppercase;
+          width: 100%;
+          border-bottom: solid 1px; 
+          margin: 15px 15px 15px 25px;
+          padding-top: 20px;
+          white-space: nowrap; 
+          font-size: 14px;
+          color: white;
+        }
+
+        </style>
+
+        <script>
+
+            var initial_clock_ticks = beacon_timer +5;
+
+            var temp_scale = {};
+	     	var clock_ticks = initial_clock_ticks;
+
+
+        </script>
+        <script src="js/tuino_temperature.js"></script>
+		<script>
+	
+
+		function updateClockTicks() {
+
+			clock_ticks--;
+			if ( clock_ticks<0 ) clock_ticks=0;
+			$("#clock_ticks").html( clock_ticks );
+		}
+
+
+		// gauges 
+		window.onload = function () {
+			var temp_widget = new PerfectWidgets.Widget("temp_widget",temp_gauge );
+			temp_scale = temp_widget.getByName("MainSlider");
+			temp_scale.setValue( 0, false);
+						
+		}
+
+	     </script>
+      </head>
+
+
+      <body class="black">
+      
+        <div class="cf-nav cf-nav-state-min">
+          <led id="led1" color="blue"></led>
+		 <div id="clock_ticks" style="text-align:center;"></div>
+        </div>
+
+        <div class="cf-container cf-nav-active">
+
+          <div class="row">
+
+            <div class="col-sm-6 cf-item">
+              
+              <div class="row" style="height: 180px;">
+
+                <div class="col-sm-4 cf-item">
+                  
+                  <header>
+                    <p><span></span>Temperature °C</p>
+                  </header>
+                	  <div class="content" style="display: flex;justify-content: center; align-items: center; height:155px;">
+                    <div id="temp_widget" style="height: 135px; width: 135px;"></div>
+                   </div>
+        
+       
+                </div> <!-- //end cf-item -->
+
+                <div class="col-sm-4 cf-item">
+                
+                  <header>
+                    <p><span></span>Temperature °C</p>
+                  </header>
+                  
+                  <div class="content">
+                  	<div class="cf-td">
+						          <span class="metric" id="box_temperature">--.--</span>
+						          <span class="metric-small">°C</span>									
+					         </div>
+                  </div>
+                </div> <!-- //end cf-item -->
+
+              </div> <!-- end first row -->
+
+
+            </div>  <!-- end div 6 -->
+
+
+          </div> <!-- end row --> 
+
+
+
+        </div> <!-- //end cf-container -->
+      </body>
+      
+</html>

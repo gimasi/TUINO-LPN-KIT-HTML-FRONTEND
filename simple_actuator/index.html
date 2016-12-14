@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>TUINO DEMO - SIMPLE ACTUATOR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/controlfrog.css" rel="stylesheet" media="screen">   
+  
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>    
+
+  <script src="configuration.js"></script>
+
+  <script src="js/stomp.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <script src="Drinks.js"></script>
+
+        <style>
+        .title {
+          text-transform: uppercase;
+          width: 100%;
+          border-bottom: solid 1px; 
+          margin: 15px 15px 15px 25px;
+          padding-top: 20px;
+          white-space: nowrap; 
+          font-size: 14px;
+          color: white;
+        }
+
+        </style>
+
+        <script>
+
+        var initial_clock_ticks = beacon_timer+5;
+
+		// globals - not nice but necessary!
+		var interval_main_light;
+		var main_led_light = 0;
+		
+		var debounce_timeout_handler;
+		var led_control_light;
+
+		var clock_ticks = initial_clock_ticks;
+
+		function updateClockTicks() {
+			clock_ticks--;
+			if ( clock_ticks<0 ) clock_ticks=0;
+			$("#clock_ticks").html( clock_ticks );
+		}
+
+        </script>
+        
+        <script src="js/tuino_actuator.js"></script>
+		<script>
+	
+
+	
+
+
+	function flashingLed( led ) {
+	
+		if (led.value == 1 )
+			led.off();
+		else
+			led.on();
+		
+	}
+
+	function turnLightOn() {
+
+		if ( main_led_light == 1 )
+			return;
+
+		$.ajax({
+		dataType: "json",
+		url: "http://beta.giotty.com/api/v1/nodes/send_data_to_node/"+sensor_id,
+  		data: { auth_token: auth_token, payload:"01" },
+  		crossDomain: true
+  		}).success(function( data ) {
+   			
+   			console.log(">>> SENT ON");
+			
+			clearInterval(interval_main_light);
+			led_light.on();
+			interval_main_light = setInterval(function(){ flashingLed(led_light) }, 500);
+
+  		});
+			
+	}
+
+	function turnLightOff(){
+
+		if ( main_led_light == 0) 
+			return;
+	
+		$.ajax({
+		dataType: "json",
+		url: "http://beta.giotty.com/api/v1/nodes/send_data_to_node/"+sensor_id,
+  		data: { auth_token: auth_token, payload:"00" },
+  		crossDomain: true
+  		}).success(function( data ) {
+
+   			console.log(">>> SENT OFF");
+   			
+			clearInterval(interval_main_light);
+			led_light.on();
+			interval_main_light = setInterval(function(){ flashingLed(led_light) }, 500);
+			
+  		} );
+
+	}
+
+
+
+		function setMainLight() {
+		 sw1.value = main_led_light;
+		 led_light.value = main_led_light; 
+		}
+
+		function toggleMainLight() {
+		
+				if (sw1.value==1)
+					turnLightOn();
+				else
+					turnLightOff();								
+		}
+	     </script>
+      </head>
+
+
+      <body class="black">
+      
+        <div class="cf-nav cf-nav-state-min">
+          <led id="led1" color="blue"></led>
+		 <div id="clock_ticks" style="text-align:center;"></div>
+        </div>
+
+        <div class="cf-container cf-nav-active">
+
+          <div class="row">
+
+            <div class="col-sm-6 cf-item">
+             
+
+                <div class="col-sm-4 cf-item">
+                
+                  <header>
+                    <p><span></span>Actuator</p>
+                  </header>
+                  
+                  <div class="content" style="display: flex;justify-content: center; align-items: center; height:155px;">
+						
+					<div>
+					<div style="height: 40px; display: flex;justify-content: center; align-items: center;"> 
+						<led id="led_light" color="red"></led>					
+					</div>
+					<div style="height: 100px">
+
+					<switch id="sw1" onload="setMainLight()" onchange="toggleMainLight()">
+					</switch>
+					
+					</div>
+					</div>
+                  </div>
+                
+                </div><!-- // item -->   
+
+              </div> <!-- // end second row -->
+
+
+            </div>  <!-- end div 6 -->
+
+          </div> <!-- end row --> 
+
+        </div> <!-- //end cf-container -->
+      </body>
+      
+</html>

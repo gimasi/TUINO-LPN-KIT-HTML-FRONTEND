@@ -6,12 +6,8 @@ This code will work with both version we have here on GitHUB of the LPN KIT
 - [Swisscom LPN Version](https://github.com/gimasi/TUINO_LPN_KIT_SWISSCOM_LPN)
 
 
-This is the Swisscom LPN version of the [TUINO LPN Demos](https://github.com/gimasi/TUINO-LPN-KIT-DEMOS )<br/>
-You need to have a TUINO LR with the Swisscom LPN Firmware.<br/>
-
 There are 4 frontend for the respective TUINO LR code<br/>
 
-There are 4 demos
 - Simple Sensor<br>
 ![SIMPLE_SENSOR](/docs/img/simple_sensor.png?raw=true)
 

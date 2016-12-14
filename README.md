@@ -13,16 +13,16 @@ There are 4 frontend for the respective TUINO LR code<br/>
 
 There are 4 demos
 - Simple Sensor<br>
-![SIMPLE_SENSOR](/docs/imgs/simple_sensors.png?raw=true)
+![SIMPLE_SENSOR](/docs/img/simple_sensors.png?raw=true)
 
 - Simple Actuator<br>
-![SIMPLE_SENSOR](/docs/imgs/simple_actuator.png?raw=true)
+![SIMPLE_SENSOR](/docs/img/simple_actuator.png?raw=true)
 
 - Temperature Sensor<br>
-![SIMPLE_SENSOR](/docs/imgs/temperature_sensor.png?raw=true)
+![SIMPLE_SENSOR](/docs/img/temperature_sensor.png?raw=true)
 
 - Thermostat<br>
-![SIMPLE_SENSOR](/docs/imgs/thermostat.png?raw=true)
+![SIMPLE_SENSOR](/docs/img/thermostat.png?raw=true)
 
 In each demo directory you will find a configuration.js file where you need to fill in these variables:<br/>
 

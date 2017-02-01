@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     		var on_connect = function() {
 
-    			id = client.subscribe("/exchange/logs/*.*."+user_id, function(message){
+    			id = client.subscribe("/exchange/logs/*.*", function(message){
 				
 
     				data = JSON.parse(message.body);
@@ -62,6 +62,7 @@ $(document).ready(function(){
     		    console.log('error');
     		};
 
-    		client.connect(auth_token, '', on_connect, on_error, '/');
+    		client.connect(auth_token, '', on_connect, on_error, 'user_'+user_id);
+
 
 });

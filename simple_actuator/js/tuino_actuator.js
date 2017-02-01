@@ -51,5 +51,5 @@ $(document).ready(function(){
     		    console.log('error');
     		};
 
-    		client.connect(auth_token, '', on_connect, on_error, '/');
+   	 		client.connect(auth_token, '', on_connect, on_error, 'user_'+user_id);
 });

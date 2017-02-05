@@ -12,7 +12,8 @@ $(document).ready(function(){
 
     		var on_connect = function() {
 
-    			id = client.subscribe("/exchange/logs/*.*", function(message){
+    			// listen on queue for sensor_id data
+    			id = client.subscribe("/exchange/logs/*."+sensor_id, function(message){
 				
 
     				data = JSON.parse(message.body);

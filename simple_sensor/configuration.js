@@ -2,5 +2,8 @@
 var auth_token = "__YOUR_USER_AUTH_TOKEN__";
 var user_id = "__YOUR_USER_ID__";
 
+//
+var sensor_id = "__SENSOR_ID__";
+
 // Sensor UPLINK interval in seconds
 var beacon_timer = 60;

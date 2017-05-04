@@ -2,9 +2,9 @@
 
 Here are some examples of HTML frontends for the LPN KIT Demos. You will be able to display data coming from your TUINO LR Nodes.</br>
 
-<b>For the new Tuino 1 check the [TUINO1 THERMOSTATA](https://github.com/gimasi/TUINO1_THERMOSTAT) demo</b><br/>
+<b>For the new Tuino 1 check the [TUINO1 THERMOSTAT](https://github.com/gimasi/TUINO1_THERMOSTAT) demo</b><br/>
 <br>
-For the older versions, now obsolete:
+For the older versions (now obsolete) of the LORAUINO/TUINO Hardware:
 - [Standard LPN Version](https://github.com/gimasi/TUINO-LPN-KIT-DEMOS)
 - [Swisscom LPN Version](https://github.com/gimasi/TUINO_LPN_KIT_SWISSCOM_LPN)
 
